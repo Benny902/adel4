@@ -1,0 +1,6 @@
+Flask
+flask-cors
+pymongo
+load_dotenv
+datetime
+pytz

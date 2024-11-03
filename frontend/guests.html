@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>רשימת אורחים</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <h1>רשימת אורחים</h1>
+
+    <div id="summary">
+        <p id="totalGuests"></p>
+        <p id="totalAttendees"></p>
+    </div>
+
+    <table id="guestTable" border="1">
+        <thead>
+            <tr>
+                <th onclick="sortTable(4)">פעולות</th> <!-- Actions first -->
+                <th onclick="sortTable(0)">תאריך הרשמה</th>
+                <th onclick="sortTable(2)">פלאפון</th>
+                <th onclick="sortTable(3)">שם</th>
+                <th></th> <!-- Row number column -->
+            </tr>
+        </thead>
+        <tbody id="guestTableBody">
+            <!-- Guest entries will be dynamically populated here -->
+        </tbody>
+    </table>
+
+    <script src="guests.js"></script> <!-- Ensure this path is correct -->
+</body>
+</html>

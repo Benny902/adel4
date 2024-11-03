@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  db:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      - ./backend/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    networks:
+      - guestlist_network
+
+  backend:
+    build: ./backend
+    container_name: backend
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+    ports:
+      - "7000:7000"
+    networks:
+      - guestlist_network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "7100:80"
+
+volumes:
+  mongo-data:
+
+networks:
+  guestlist_network:
+    driver: bridge
